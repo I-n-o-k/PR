@@ -5,7 +5,7 @@ const fs = require('fs');
 const xml2js = require('xml2js');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 // Melayani file statis dari direktori root (termasuk folder images)
@@ -203,8 +203,6 @@ app.post('/api/save-products', (req, res) => {
     });
 });
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server Polaris Acc berjalan!`);
-    console.log(`- Akses dari komputer ini: http://localhost:${port}`);
-    console.log(`- Untuk akses dari perangkat lain di jaringan yang sama, cari tahu IP lokal komputer ini terlebih dahulu.`);
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });

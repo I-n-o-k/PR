@@ -7,14 +7,5 @@
         "phone": "082280052830",
         "address": "Pasar Jambi",
         "role": "admin"
-    },
-    {
-        "userId": 397051,
-        "username": "Inok",
-        "password": "Inok",
-        "name": "Tri Sutrisno",
-        "phone": "0895600946278",
-        "address": "-",
-        "role": "user"
     }
 ]
