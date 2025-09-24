@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Polaris Acc</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="../images/your_logo.png" alt="Polaris Acc Logo" class="login-logo">
+            <h2 id="form-title">Selamat Datang Kembali</h2>
+            <p id="form-subtitle" class="login-subtitle">Silakan login untuk melanjutkan.</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group" id="name-input" style="display: none;">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="input-group" id="phone-input" style="display: none;">
+                    <label for="phone">Nomor Telpon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="input-group" id="address-input" style="display: none;">
+                    <label for="address">Alamat</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="input-group">
+                    <label for="password">Kata Sandi</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button" id="form-button">Masuk</button>
+            </form>
+            <p id="error-message" class="error-message"></p>
+            <div class="switch-form-container">
+                <a href="#" id="switch-to-register">Daftar di sini</a>
+                <a href="#" id="switch-to-login" style="display:none;">Kembali ke Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

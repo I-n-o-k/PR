@@ -1,0 +1,143 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #000;
+    font-weight: bold;
+}
+
+.login-subtitle {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: 15px;
+    display: none;
+}
+
+/* Penataan untuk tautan pendaftaran */
+.switch-form-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.switch-form-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.switch-form-container a:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .login-subtitle {
+        font-size: 0.9em;
+    }
+
+    .input-group input, .login-button {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
