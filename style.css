@@ -1,0 +1,704 @@
+/* ==================================== */
+/* Global & Layout                      */
+/* ==================================== */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==================================== */
+/* Header Section                       */
+/* ==================================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed; /* Ubah menjadi fixed */
+    z-index: 100; /* Ensure it's above other content */
+    top: 0; /* Menempel di bagian atas */
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Tambahkan flex-shrink untuk mencegah elemen menyusut */
+.header-left, .header-right {
+    flex-shrink: 0;
+}
+
+.store-name {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    /* Tambahkan white-space untuk mencegah teks melipat */
+    white-space: nowrap;
+}
+
+.cart-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* --- Admin Status Button in Header --- */
+.admin-status-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: default;
+}
+
+.admin-status-text {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* --- Admin Button --- */
+.admin-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.admin-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Announcement Ticker --- */
+.announcement-ticker {
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 20px;
+    position: relative;
+    color: #6a6a6a;
+    min-width: 0; /* Tambahkan ini agar tidak menyebabkan overflow */
+}
+
+.announcement-ticker p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrolling-text 15s linear infinite;
+    font-size: 0.9em;
+}
+
+@keyframes scrolling-text {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ==================================== */
+/* Main Content                         */
+/* ==================================== */
+.main-content {
+    flex-grow: 1;
+    /* Atur padding atas agar tidak tertutup header */
+    padding-top: 80px; 
+    padding-bottom: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* --- Products Grid --- */
+.product-display-frame-small {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px; 
+}
+
+.product-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    
+    aspect-ratio: 1 / 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Edit Button */
+.edit-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    z-index: 10;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.product-full-logo {
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.product-name, .product-price {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-bottom-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* --- Quantity Controls --- */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantity-controls button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.quantity-controls button:hover {
+    background-color: #2980b9;
+}
+
+.product-quantity {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #555;
+    min-width: 20px;
+    text-align: center;
+}
+
+
+/* ==================================== */
+/* Cart Section                         */
+/* ==================================== */
+.cart-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* Atur padding atas agar tidak tertutup header */
+    padding-top: 80px;
+    margin-top: 20px;
+}
+
+.cart-section h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1em;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+.cart-total {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 1.2em;
+}
+
+.cart-total #total-price {
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* --- Checkout Button Styling --- */
+.checkout-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 60px;
+}
+
+.checkout-button:hover {
+    background-color: #219d53;
+}
+
+
+/* ==================================== */
+/* Modal Styling                        */
+/* ==================================== */
+.modal {
+    display: none; /* Sembunyikan secara default */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.confirm-button {
+    background-color: #27ae60;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #219d53;
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}
+
+
+/* ==================================== */
+/* Nota Pembelian                       */
+/* ==================================== */
+.invoice-section {
+    display: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    display: flex; /* Tambahkan ini */
+    justify-content: center; /* Tambahkan ini */
+}
+
+.invoice-content {
+    border: 1px dashed #ccc;
+    padding: 20px;
+    font-family: monospace;
+    white-space: pre-wrap; /* Mempertahankan spasi dan baris baru */
+    max-width: 800px; /* Tambahkan ini untuk lebar maksimum */
+}
+
+#invoice-details {
+    line-height: 1.5;
+}
+
+.download-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #2980b9;
+}
+
+
+/* ==================================== */
+/* History & Profile Sections           */
+/* ==================================== */
+.history-section, .profile-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.history-section h2, .profile-section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.history-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+/* --- History Item Styling (NEW) --- */
+.clickable-history-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.clickable-history-item:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* --- Profile Styling --- */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.profile-id {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.profile-info strong {
+    color: #555;
+}
+
+/* --- Profile Menu Styling --- */
+.profile-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.profile-menu-item {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.profile-menu-item:hover {
+    background-color: #f9f9f9;
+}
+
+.profile-menu-list li:last-child .profile-menu-item {
+    border-bottom: none;
+}
+
+/* --- Edit Profile Form Specifics --- */
+#edit-profil-form .profile-header {
+    justify-content: center; /* Center the profile picture */
+}
+
+#edit-profil-form .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-profil-form .input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#edit-profil-form .input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%; /* Make input full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+/* Password Strength Indicator */
+.password-strength-indicator {
+    height: 5px;
+    width: 100%;
+    background-color: #ddd;
+    margin-top: 5px;
+    border-radius: 2.5px;
+    overflow: hidden;
+}
+
+.password-strength-indicator::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.password-strength-text {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: #777;
+}
+
+/* Strength Levels */
+.password-strength-indicator.very-weak::before {
+    width: 20%;
+    background-color: #e74c3c; /* Red */
+}
+.password-strength-indicator.weak::before {
+    width: 40%;
+    background-color: #f39c12; /* Orange */
+}
+.password-strength-indicator.moderate::before {
+    width: 60%;
+    background-color: #f1c40f; /* Yellow */
+}
+.password-strength-indicator.strong::before {
+    width: 80%;
+    background-color: #2ecc71; /* Green */
+}
+.password-strength-indicator.very-strong::before {
+    width: 100%;
+    background-color: #27ae60; /* Darker Green */
+}
+
+#invoice-search {
+    padding: 10px;
+}
+
+
+/* ==================================== */
+/* Footer Section                       */
+/* ==================================== */
+.footer-menu {
+ display: flex;
+ justify-content: space-around;
+    align-items: center; /* Tambahkan ini untuk centering vertikal */
+    padding: 15px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+ position: fixed; /* Ubah menjadi fixed */
+    bottom: 0; /* Menempel di bagian bawah */
+ z-index: 100; /* Ensure it's above other content */
+    left: 0; /* Lebar penuh */
+ width: 100%;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9em;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.menu-item:hover {
+    color: #000;
+}
+
+
+/* ==================================== */
+/* Cart Summary Pop-up                  */
+/* ==================================== */
+.cart-summary-popup {
+    display: none;
+    position: fixed;
+    bottom: 60px; /* Jarak dari footer */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.cart-summary-popup.show {
+    opacity: 1;
+}
+
+.cart-summary-popup p {
+    margin: 5px 0;
+}
+
+
+/* ==================================== */
+/* Responsive Design                    */
+/* ==================================== */
+@media (max-width: 600px) {
+    .main-content {
+        /* Padding diperbarui agar ada ruang yang cukup */
+        padding: 80px 10px 60px;
+    }
+    .product-display-frame-small {
+        grid-template-columns: repeat(2, 1fr);
+ }
+    
+    .product-box p {
+        font-size: 0.8em;
+    }
+
+    /* Perubahan untuk header di mobile */
+    .header {
+        padding: 10px 15px; /* Kurangi padding untuk membuat header lebih ramping */
+    }
+
+    .store-name {
+        font-size: 1.2em; /* Kurangi ukuran font nama toko */
+    }
+
+    .cart-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Tambahkan media query untuk layar yang lebih kecil */
+@media (max-width: 480px) {
+    .invoice-content { padding: 10px; }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaris Acc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <h1 class="store-name">Polaris Acc</h1>
+        </div>
+        <div class="announcement-ticker">
+            <p>Pemberitahuan: Harga Beberapa Produk Naik! Mohon Periksa Halaman Produk Kami.</p>
+        </div>
+        <div class="header-right">
+            <a href="#" class="cart-icon-link" id="cart-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 12.06a2 2 0 0 0 2 1.94h9.32a2 2 0 0 0 2-1.94L23 6H6"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div id="product-list">
+            <div class="product-display-frame-small" id="product-grid">
+                </div>
+        </div>
+
+        <div id="riwayat-pembelian" class="history-section" style="display: none;">
+            <h2>Riwayat Pembelian</h2>
+            <div class="history-item">
+                <h3>Pesanan #12345</h3>
+                <p>Tanggal: 23 September 2025</p>
+                <p>Total: Rp 150.000</p>
+            </div>
+            <div class="history-item">
+                <h3>Pesanan #12344</h3>
+                <p>Tanggal: 20 September 2025</p>
+                <p>Total: Rp 75.000</p>
+            </div>
+            <div class="history-item">
+                <h3>Pesanan #12343</h3>
+                <p>Tanggal: 18 September 2025</p>
+                <p>Total: Rp 200.000</p>
+            </div>
+        </div>
+        
+        <div id="menu-profil" class="profile-section">
+            <div class="profile-header">
+                <img src="https://placehold.co/100x100" alt="Foto Profil" class="profile-picture">
+                <div>
+                    <h3 class="profile-name" id="profile-display-name">Polaris User</h3>
+                    <p class="profile-id">ID: <span id="profile-display-id">123456</span></p>
+                </div>
+            </div>
+            
+            <div class="profile-info">
+                <p><strong>Telepon:</strong> <span id="profile-phone"></span></p>
+                <p><strong>Alamat:</strong> <span id="profile-address"></span></p>
+            </div>
+            
+            <ul class="profile-menu-list">
+                <li><a href="#" class="profile-menu-item" id="edit-profile-menu">Pengaturan Akun</a></li>
+                <li><a href="#" class="profile-menu-item" id="change-password-menu">Ubah Kata Sandi</a></li>
+                <li><a href="#" class="profile-menu-item">Notifikasi</a></li>
+                <li><a href="#" id="logout-button" class="profile-menu-item">Keluar</a></li>
+            </ul>
+        </div>
+
+        <!-- Edit Profile Form Section -->
+        <div id="edit-profil-form" class="profile-section" style="display: none;">
+            <h2>Edit Profil</h2>
+            <form id="edit-profile-form">
+                <div class="profile-header">
+                    <img src="https://placehold.co/100x100" alt="Foto Profil" class="profile-picture">
+                </div>
+                
+                <div class="profile-info">
+                    <div class="input-group">
+                        <label for="edit-name">Nama Lengkap</label>
+                        <input type="text" id="edit-name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-phone">Telepon</label>
+                        <input type="tel" id="edit-phone" name="phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-address">Alamat</label>
+                        <input type="text" id="edit-address" name="address">
+                    </div>
+                </div>
+                
+                <div class="profile-buttons">
+                    <button type="submit" class="confirm-button">Simpan Perubahan</button>
+                    <button type="button" class="cancel-button" id="cancel-edit-profile">Batal</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <!-- Add search bar -->
+    <div id="invoice-search">
+        <input type="text" id="search-invoice" placeholder="Cari Invoice">
+    </div>
+    <div id="shopping-cart-section" class="cart-section" style="display: none;">
+        <h2>Keranjang Belanja</h2>
+        <ul id="cart-items">
+            </ul>
+        <div class="cart-total">
+            <p><strong>Total Harga:</strong> <span id="total-price">Rp 0</span></p>
+        </div>
+        <button id="checkout-button" class="checkout-button">Beli Sekarang</button>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Konfirmasi Pembelian</h3>
+            <p>Apakah Anda yakin ingin menyelesaikan pembelian?</p>
+            <p>Total harga: <span id="modal-total-price">Rp 0</span></p>
+            <div class="modal-buttons">
+                <button id="confirm-purchase-button" class="confirm-button">Ya, Beli</button>
+                <button class="cancel-button">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="invoice-section" class="invoice-section" style="display: none;">
+        <div class="invoice-content">
+            <h2>Nota Pembelian</h2>
+            <div id="invoice-details"></div>
+            <a id="download-invoice-button" class="download-button" href="#" download="nota_pembelian.png">Unduh Nota & Kirim WA</a>
+        </div>
+    </div>
+    
+    <div id="cart-summary-popup" class="cart-summary-popup">
+        <div class="popup-content">
+            <p>Total Item: <span id="popup-item-count">0</span></p>
+            <p>Total Harga: <span id="popup-total-price">Rp 0</span></p>
+        </div>
+    </div>
+
+    <footer class="footer-menu">
+        <a href="#" class="menu-item" id="home-menu">Home</a>
+        <a href="#" class="menu-item" id="riwayat-menu">Riwayat</a>
+        <a href="#" class="menu-item" id="profil-menu">Profil</a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
