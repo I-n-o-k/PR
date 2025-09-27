@@ -21,7 +21,7 @@
   <package>
     <provider>Telkomsel</provider>
     <validity>3Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>11500</price>
   </package>
   <package>
@@ -33,7 +33,7 @@
   <package>
     <provider>Telkomsel</provider>
     <validity>5Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>12700</price>
   </package>
   <package>
@@ -51,7 +51,7 @@
   <package>
     <provider>By.u</provider>
     <validity>30Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>8600</price>
   </package>
   <package>
@@ -93,7 +93,7 @@
   <package>
     <provider>Axis</provider>
     <validity>5Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>12100</price>
   </package>
   <package>
@@ -135,7 +135,7 @@
   <package>
     <provider>Axis</provider>
     <validity>15Hari</validity>
-    <quota>1Perdana</quota>
+    <quota>13GB</quota>
     <price>41500</price>
   </package>
   <package>
@@ -147,7 +147,7 @@
   <package>
     <provider>Axis</provider>
     <validity>30Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>21000</price>
   </package>
   <package>
@@ -243,7 +243,7 @@
   <package>
     <provider>Three</provider>
     <validity>AON</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>23000</price>
   </package>
   <package>
@@ -291,7 +291,7 @@
   <package>
     <provider>Indosat</provider>
     <validity>30Hari</validity>
-    <quota>Perdana</quota>
+    <quota>3GB</quota>
     <price>20000</price>
   </package>
   <package>
